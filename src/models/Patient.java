@@ -1,17 +1,18 @@
 package models;
 
 public class Patient {
-    long pId;
+    String pId;
     String name;
     String disease;
     int age;
     long phoneNumber;
     String gender;
+    boolean isAdmit;
     String emailId;
     Doctor doctor;
     Room room;
 
-    public Patient(int pId, String name, String disease, int age, long phoneNumber, String gender, String emailId,Doctor doctor,Room room) {
+    public Patient(String pId, String name, String disease, int age, long phoneNumber, String gender, String emailId,Doctor doctor,Room room,boolean isAdmit) {
         this.pId = pId;
         this.name = name;
         this.disease = disease;
@@ -21,13 +22,30 @@ public class Patient {
         this.emailId = emailId;
         this.doctor=doctor;
         this.room=room;
+        this.isAdmit=isAdmit;
     }
 
-    public long getpId() {
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "pId='" + pId + '\'' +
+                ", name='" + name + '\'' +
+                ", disease='" + disease + '\'' +
+                ", age=" + age +
+                ", phoneNumber=" + phoneNumber +
+                ", gender='" + gender + '\'' +
+                ", isAdmit=" + isAdmit +
+                ", emailId='" + emailId + '\'' +
+                ", doctor=" + doctor +
+                ", room=" + room +
+                '}';
+    }
+
+    public String getpId() {
         return pId;
     }
 
-    public void setpId(long pId) {
+    public void setpId(String pId) {
         this.pId = pId;
     }
 
