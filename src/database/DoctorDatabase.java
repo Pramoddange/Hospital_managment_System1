@@ -31,6 +31,7 @@ public class DoctorDatabase {
     public Doctor getDoctorID(String id){
         return doctorDatabase.get(id);
     }
+
     public int getTotalDoctors(){
         return doctorDatabase.size();
     }

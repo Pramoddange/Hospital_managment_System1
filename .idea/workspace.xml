@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4370cc34-2268-4bcc-a7e1-69d4bd8a8226" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/DoctorDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/DoctorDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/PatientDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/PatientDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/RoomDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/RoomDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Hospital.java" afterDir="false" />
-    </list>
+    <list default="true" id="4370cc34-2268-4bcc-a7e1-69d4bd8a8226" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +13,13 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -33,12 +33,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Pramod Dange/OneDrive/Desktop/Assigment AccioJob(Spring1)/HospitalManagementSystem"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="HospitalManagementSystem" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea$MAVEN_REPOSITORY$$MODULE_DIR$$MODULE_WORKING_DIR$$FileClass$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -49,5 +64,16 @@
       <updated>1705592397384</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties>
+            <option name="NOTIFY_UNCAUGHT" value="false" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

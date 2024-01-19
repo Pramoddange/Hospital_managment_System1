@@ -76,7 +76,7 @@ public class Hospital {
         System.out.println("Room added Successfully->"+room);
     }
     public void appointDoctor(String docDegree,String name,long phoneNumber,String speciality,int salary,String timeSlot){
-        String docId="DOCID"+(doctorDatabase.getDoctorID()+1);
+        String docId = "DOCID" + (doctorDatabase.getTotalDoctors() + 1);
         Doctor doc=new Doctor(docId,docDegree,phoneNumber,name,speciality,salary,timeSlot);
         doctorDatabase.addDoctorToDB(doc);
         System.out.println("Doctor created successfully ->"+doc);
