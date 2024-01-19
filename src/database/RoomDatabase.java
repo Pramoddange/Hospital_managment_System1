@@ -5,25 +5,29 @@ import models.Room;
 import java.util.HashMap;
 
 public class RoomDatabase {
-    HashMap<String, Room> roomDatabase;
-    public RoomDatabase(){
-        this.roomDatabase=new HashMap<>();
-    }
-    public Room getUnoccupiedRoom(){
+    HashMap<String, Room> roomDB;
 
-        for(String key:roomDatabase.keySet()){
-            Room room=roomDatabase.get(key);
-            if(!room.isOccupied()){
+    public RoomDatabase(){
+        this.roomDB = new HashMap<>();
+    }
+
+    public Room getUnoccupiedRoom(){
+        for(String key : roomDB.keySet()){
+            Room room = roomDB.get(key);
+            if(room.isOccupied() == false){
                 return room;
             }
         }
         return null;
     }
+
     public int getTotalRooms(){
-        return  roomDatabase.size();
+        return roomDB.size();
     }
-    public void addRoomToDb(Room room){
-        String roomId=room.getRoomId();
-        roomDatabase.put(roomId,room);
+
+    public void addRoomToDB(Room room){
+        String roomId = room.getRoomId();
+        roomDB.put(roomId, room);
     }
+
 }

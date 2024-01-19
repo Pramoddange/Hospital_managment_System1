@@ -1,26 +1,43 @@
+
 package models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Doctor {
     String docId;
     String docDegree;
-    long phoneNumber;
     String name;
+    Long phoneNumber;
     String speciality;
-    long salary;
+    int salary;
     String timeSlot;
-    ArrayList<Patient>patientList;
 
-    public Doctor(String docId, String docDegree, long phoneNumber, String name, String speciality, long salary, String timeSlot) {
+    List<Patient> patientList;
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "docId='" + docId + '\'' +
+                ", docDegree='" + docDegree + '\'' +
+                ", name='" + name + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", speciality='" + speciality + '\'' +
+                ", salary=" + salary +
+                ", timeSlot='" + timeSlot + '\'' +
+
+                '}';
+    }
+
+    public Doctor(String docId, String docDegree, String name, Long phoneNumber, String speciality, int salary, String timeSlot) {
         this.docId = docId;
         this.docDegree = docDegree;
-        this.phoneNumber = phoneNumber;
         this.name = name;
+        this.phoneNumber = phoneNumber;
         this.speciality = speciality;
         this.salary = salary;
         this.timeSlot = timeSlot;
-       this.patientList=new ArrayList<>();
+        this.patientList = new ArrayList<>();
     }
 
     public String getDocId() {
@@ -39,20 +56,20 @@ public class Doctor {
         this.docDegree = docDegree;
     }
 
-    public long getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Long phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getSpeciality() {
@@ -63,11 +80,11 @@ public class Doctor {
         this.speciality = speciality;
     }
 
-    public long getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(long salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 
@@ -79,11 +96,11 @@ public class Doctor {
         this.timeSlot = timeSlot;
     }
 
-    public ArrayList<Patient> getPatientList() {
+    public List<Patient> getPatientList() {
         return patientList;
     }
 
-    public void setPatientList(ArrayList<Patient> patientList) {
+    public void setPatientList(List<Patient> patientList) {
         this.patientList = patientList;
     }
 }
