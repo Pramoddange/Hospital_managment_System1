@@ -3,23 +3,30 @@ package models;
 import database.DoctorDatabase;
 import database.PatientDatabase;
 import database.RoomDatabase;
+import factory.HospitalObjectFactory;
+import service.PatientService;
+import service.PatientServiceImpl;
 
 public class Hospital {
     private String name;
     private String address;
-    private long phoneNumber;
+    private Long phoneNumber;
     private String emailId;
     private PatientDatabase patientDatabase;
     private DoctorDatabase doctorDatabase;
     private RoomDatabase roomDatabase;
+
+    private PatientService patientService;
+
+    private HospitalObjectFactory hospitalObjectFactory;
+
+
     public Hospital(String name, String address, long phoneNumber, String emailId) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.emailId = emailId;
-        this.patientDatabase=new PatientDatabase();
-        this.doctorDatabase = new DoctorDatabase();
-        this.roomDatabase=new RoomDatabase();
+
     }
 
     public String getName() {
@@ -38,11 +45,11 @@ public class Hospital {
         this.address = address;
     }
 
-    public long getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -53,33 +60,50 @@ public class Hospital {
     public void setEmailId(String emailId) {
         this.emailId = emailId;
     }
-    public void admitPatient(String name,int age,long phoneNumber,String emailId,String gender,String disease){
-        //patient will provide detailed
-        //Now it is work of hospital to assign of all feature
-        //using database to save the patient obj
-        //1.generate id of patient
-        int totalPatientCount=patientDatabase.getTotalPatientCount();
-        String pId="PID"+totalPatientCount;
-        //2.get doctor who handling minimumNo of patient
-        Doctor doctor=doctorDatabase.getMinimumPatientDoctor();
-        //3.get room which is not occupied
-        Room room=roomDatabase.getUnoccupiedRoom();
+
+    public void admitPatient(String name, int age, long phoneNumber, String email, String gender, String disease){
+        // Patient will provide details
+        // Now it is work of hospital to  assign doctor to patient
+        // Hospital will assign rooms to patient
+        // Hospital will create id for patient
+        // When we will get all the details we will create patient object
+        // and we will be using our database to save that patient object
+
+        // 1. Generate Id for the patient ->
+        int totalPatientCount = HospitalObjectFactory.getPatientDatabase().getTotalPatientCount() + 1;
+        String pId = "PID"+totalPatientCount;
+
+        // 2. Get the doctor who is handeling minimum number of patient
+        Doctor doctor = HospitalObjectFactory.getDoctorDatabase().getMinimumPatientDoctor();
+
+        // 3. get the room which is not occupied
+        Room room = HospitalObjectFactory.getRoomDatabase().getUnoccupiedRoom();
         room.setOccupied(true);
-        Patient p= new Patient(pId,name,disease,age,phoneNumber,gender,emailId,doctor,room,true);
+
+        Patient p = new Patient(pId, name, age, phoneNumber, email, gender, disease, doctor, room, true);
         doctor.patientList.add(p);
-        System.out.println("Patient got admitted successfully ->"+p);
+        System.out.println("Patient got admitted successfully -> " + p);
     }
+
     public void createRoom(){
-        String roomId="ROMID"+(roomDatabase.getTotalRooms()+1);
-        Room room=new Room(roomId,false,null,null);
-        roomDatabase.addRoomToDb(room);
-        System.out.println("Room added Successfully->"+room);
+        String roomId = "ROOMID" + (HospitalObjectFactory.getRoomDatabase().getTotalRooms()+1);
+        Room room = new Room(roomId, false, null,  null);
+        HospitalObjectFactory.getRoomDatabase().addRoomToDB(room);
+        System.out.println("Room added successfully -> " +  room);
     }
-    public void appointDoctor(String docDegree,String name,long phoneNumber,String speciality,int salary,String timeSlot){
-        String docId="DOCID"+(doctorDatabase.getDoctorID()+1);
-        Doctor doc=new Doctor(docId,docDegree,phoneNumber,name,speciality,salary,timeSlot);
-        doctorDatabase.addDoctorToDB(doc);
-        System.out.println("Doctor created successfully ->"+doc);
+
+    public void appointDoctor(String docDegree, String name, long phoneNumber, String speciality, int salary, String timeSlot) throws ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException{
+        String docId = "DOCID" + (HospitalObjectFactory.getDoctorDatabase().getTotalDoctors() + 1);
+        Doctor doc = new Doctor(docId,docDegree, name, phoneNumber, speciality, salary, timeSlot);
+        HospitalObjectFactory.getDoctorDatabase().adddoctorToDB(doc);
+        System.out.println("Doctor created successfully ->" + doc);
     }
+
+    public void getPatientById(String pId) throws ArithmeticException{
+        PatientService p = new PatientServiceImpl();
+        System.out.println(p.getPatientById(pId));
+    }
+
+
 
 }

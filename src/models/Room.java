@@ -1,16 +1,28 @@
 package models;
 
+
 public class Room {
     String roomId;
     boolean isOccupied;
-    Doctor doctor;
     Patient patient;
 
-    public Room(String roomId, boolean isOccupied, Doctor doctor, Patient patient) {
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomId='" + roomId + '\'' +
+                ", isOccupied=" + isOccupied +
+                ", patient=" + patient +
+                ", doctor=" + doctor +
+                '}';
+    }
+
+    Doctor doctor;
+
+    public Room(String roomId, boolean isOccupied, Patient patient, Doctor doctor) {
         this.roomId = roomId;
         this.isOccupied = isOccupied;
-        this.doctor = doctor;
         this.patient = patient;
+        this.doctor = doctor;
     }
 
     public String getRoomId() {
@@ -29,19 +41,19 @@ public class Room {
         isOccupied = occupied;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
     public Patient getPatient() {
         return patient;
     }
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 }
