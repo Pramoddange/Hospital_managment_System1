@@ -5,15 +5,18 @@ import models.Patient;
 import java.util.HashMap;
 
 public class PatientDatabase {
-    HashMap<Long, Patient>patientDB;
-    PatientDatabase(){
-        this.patientDB=new HashMap<>();
+    HashMap<String, Patient>patientDatabase;
+    public PatientDatabase(){
+        this.patientDatabase=new HashMap<>();
     }
     public void addPatient(Patient obj){
-        long pId=obj.getpId();
-        patientDB.put(pId,obj);
+        String pId= obj.getpId();
+        patientDatabase.put(pId,obj);
     }
-    public Patient getPatient(long pId){
-        return patientDB.get(pId);
+    public  int getTotalPatientCount(){
+        return patientDatabase.size();
+    }
+    public Patient getPatient(String pId){
+        return patientDatabase.get(pId);
     }
 }
